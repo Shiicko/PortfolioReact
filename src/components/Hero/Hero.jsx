@@ -40,7 +40,7 @@ export const Hero = () => {
         {loading ? (
           <Skeleton variant="rectangular" width={150} height={150} />
         ) : (
-          <img src="public/assets/profile.svg" alt="Profile" />
+          <img src="/assets/profile.svg" alt="Profile" />
         )}
       </s.Content>
     </s.Container>
