@@ -42,16 +42,16 @@ export const Proyectos = () => {
         <span>Tu cuerpo es tu templo...</span>
       </div>
       <div>
+        <a href="https://departamentos-jet.vercel.app/" target="blank">
+          <img src="/assets/Playa.jpg" alt="" />
+        </a>
+        <span>La señal que esperabas...</span>
+      </div>
+      <div>
         <a href="https://nucbaharley.vercel.app/index.html" target="blank">
           <img src="/assets/Harley.jpg" alt="Harley" />
         </a>
         <span>No es solo una moto...</span>
-      </div>
-      <div>
-        <a href="https://www.google.com/" target="blank">
-          <img src="/assets/cs.jpg" alt="" />
-        </a>
-        <span>Pronto...</span>
       </div>
       <div>
         <a href="https://www.google.com/" target="blank">
