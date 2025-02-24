@@ -54,10 +54,10 @@ export const Proyectos = () => {
         <span>No es solo una moto...</span>
       </div>
       <div>
-        <a href="https://www.google.com/" target="blank">
-          <img src="/assets/cs.jpg" alt="" />
+        <a href="https://joelium.vercel.app/" target="blank">
+          <img src="/assets/mockup.png" alt="" />
         </a>
-        <span>Pronto...</span>
+        <span>La nueva era de Crypto...</span>
       </div>
       <div>
         <a href="https://www.google.com/" target="blank">
