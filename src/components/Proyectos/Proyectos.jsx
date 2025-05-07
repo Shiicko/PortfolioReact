@@ -60,10 +60,10 @@ export const Proyectos = () => {
         <span>La nueva era de Crypto...</span>
       </div>
       <div>
-        <a href="https://www.google.com/" target="blank">
-          <img src="/assets/cs.jpg" alt="" />
+        <a href="https://logistica-theta.vercel.app/" target="blank">
+          <img src="/assets/camion2.jpg" alt="" />
         </a>
-        <span>Pronto...</span>
+        <span>A tiempo, como nadie más...</span>
       </div>{" "}
       <div>
         <a href="https://www.google.com/" target="blank">
