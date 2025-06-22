@@ -5,44 +5,67 @@ import { Skeleton } from "@mui/material";
 export const Hero = () => {
   const [loading, setLoading] = useState(true);
 
-  // Simula una carga de contenido
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 1500);
+    const timer = setTimeout(() => setLoading(false), 1500);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
-    <s.Container>
-      <s.Content>
-        <s.textContent>
+    <>
+      <s.FontImport />
+      <s.Section>
+        <s.Container>
           {loading ? (
             <>
-              <Skeleton variant="text" width={300} height={40} />
-              <Skeleton variant="text" width={200} height={30} />
-              <Skeleton variant="text" width={50} height={30} />
+              <Skeleton
+                variant="text"
+                width="50%"
+                height={50}
+                style={{ margin: "0 auto 20px" }}
+              />
+              <Skeleton
+                variant="text"
+                width="30%"
+                height={35}
+                style={{ margin: "0 auto 20px" }}
+              />
+              <Skeleton
+                variant="text"
+                width="70%"
+                height={28}
+                style={{ margin: "0 auto 40px" }}
+              />
+              <Skeleton
+                variant="rectangular"
+                width={140}
+                height={42}
+                style={{ margin: "0 auto" }}
+              />
             </>
           ) : (
             <>
-              <h2>Hola, mi nombre es Joel</h2>
-              <span>Soy Desarrollador Frontend</span>
-              <span>
-                <a
+              <s.Title>Hola, soy Brian</s.Title>
+              <s.Subtitle>Desarrollador Frontend</s.Subtitle>
+              <s.Description>
+                Creo experiencias digitales profesionales y modernas con diseño
+                limpio y funcional.
+              </s.Description>
+              <s.ButtonsRow>
+                <s.Button
                   href="https://www.linkedin.com/in/brian-elias-perfil/"
-                  target="blank"
-                ></a>
-              </span>
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </s.Button>
+                <s.Button href="/Cv.pdf" download>
+                  Descargar CV
+                </s.Button>
+              </s.ButtonsRow>
             </>
           )}
-        </s.textContent>
-      </s.Content>
-      <s.Content>
-        {loading ? (
-          <Skeleton variant="rectangular" width={150} height={150} />
-        ) : (
-          <img src="/assets/profile.svg" alt="Profile" />
-        )}
-      </s.Content>
-    </s.Container>
+        </s.Container>
+      </s.Section>
+    </>
   );
 };

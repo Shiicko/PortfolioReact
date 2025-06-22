@@ -1,11 +1,12 @@
 export const darkTheme = {
-  bgColor: "#01000e",
-  colorTxt: "#EBD3F8",
+  bgColor: "#010105",
+  colorTxt: "#EBEBEB",
+  accent: "#03DAC6",
 };
-
 export const lightTheme = {
-  bgColor: "#EBD3F8",
-  colorTxt: "#01000e",
+  bgColor: "#E3F2FD",
+  colorTxt: "#1B2F44",
+  accent: "#2196F3",
 };
 
 export const themes = {
