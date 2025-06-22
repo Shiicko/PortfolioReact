@@ -1,12 +1,56 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import * as s from "./ProyectoStyled";
 import { Skeleton } from "@mui/material";
 
+const LazyImage = ({ src, alt }) => {
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <div style={{ position: "relative", height: "180px", width: "100%" }}>
+      {!loaded && (
+        <div
+          style={{
+            backgroundColor: "#ddd",
+            filter: "blur(8px)",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            height: "100%",
+            width: "100%",
+            borderRadius: "20px",
+            transition: "opacity 0.3s ease",
+          }}
+        />
+      )}
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        onLoad={() => setLoaded(true)}
+        style={{
+          width: "100%",
+          height: "180px",
+          objectFit: "cover",
+          borderRadius: "20px",
+          opacity: loaded ? 1 : 0,
+          transition: "opacity 0.5s ease",
+          display: "block",
+        }}
+      />
+    </div>
+  );
+};
+
 export const Proyectos = () => {
   const [loading, setLoading] = useState(true);
+  const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1500);
+    const timer = setTimeout(() => {
+      setLoading(false);
+      setTimeout(() => setShowContent(true), 100);
+    }, 1500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -51,7 +95,6 @@ export const Proyectos = () => {
       alt: "Tech Shop",
       title: "Arma la pc de tus sueños...",
     },
-
     {
       href: "https://departamentos-jet.vercel.app/",
       img: "/assets/Playa.jpg",
@@ -64,14 +107,12 @@ export const Proyectos = () => {
       alt: "Harley",
       title: "No es solo una moto...",
     },
-
     {
       href: "https://logistica-theta.vercel.app/",
       img: "/assets/camion2.jpg",
       alt: "Logística",
       title: "A tiempo, como nadie más...",
     },
-
     {
       href: "https://www.google.com/",
       img: "/assets/cs.jpg",
@@ -84,7 +125,7 @@ export const Proyectos = () => {
     <s.Card key={index}>
       <s.ImageWrapper>
         <a href={href} target="_blank" rel="noreferrer">
-          <img src={img} alt={alt} />
+          <LazyImage src={img} alt={alt} />
           <s.Overlay>
             <s.Button>Ver Proyecto</s.Button>
           </s.Overlay>
@@ -97,7 +138,14 @@ export const Proyectos = () => {
   return (
     <s.Wrapper id="Proyectos">
       <s.Header>Mis Proyectos</s.Header>
-      <s.Container>{loading ? skeletons : content}</s.Container>
+      <s.Container
+        style={{
+          opacity: loading ? 0.5 : showContent ? 1 : 0,
+          transition: "opacity 0.6s ease",
+        }}
+      >
+        {loading ? skeletons : content}
+      </s.Container>
     </s.Wrapper>
   );
 };
