@@ -58,7 +58,7 @@ export const Hero = () => {
                 >
                   LinkedIn
                 </s.Button>
-                <s.Button href="/Cv.pdf" download>
+                <s.Button href="/Curriculum.pdf" download>
                   Descargar CV
                 </s.Button>
               </s.ButtonsRow>
