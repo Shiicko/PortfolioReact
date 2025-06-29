@@ -114,10 +114,10 @@ export const Proyectos = () => {
       title: "A tiempo, como nadie más...",
     },
     {
-      href: "https://www.google.com/",
-      img: "/assets/cs.jpg",
-      alt: "Pronto",
-      title: "Pronto...",
+      href: "https://moodify-tau.vercel.app/",
+      img: "/assets/moodify.png",
+      alt: "Moodify",
+      title: "Canciones para vos...",
     },
   ];
 
