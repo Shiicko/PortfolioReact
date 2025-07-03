@@ -84,6 +84,12 @@ export const Proyectos = () => {
       title: "La nueva era de Crypto...",
     },
     {
+      href: "https://moodify-tau.vercel.app/",
+      img: "/assets/moodify.avif",
+      alt: "Moodify",
+      title: "Canciones para vos...",
+    },
+    {
       href: "https://gym-rosy-two.vercel.app/",
       img: "/assets/gym.avif",
       alt: "Gym",
@@ -91,13 +97,13 @@ export const Proyectos = () => {
     },
     {
       href: "https://tech-shop-silk.vercel.app/",
-      img: "/assets/img.jpg",
+      img: "/assets/img.avif",
       alt: "Tech Shop",
       title: "Arma la pc de tus sueños...",
     },
     {
       href: "https://departamentos-jet.vercel.app/",
-      img: "/assets/Playa.jpg",
+      img: "/assets/Playa.avif",
       alt: "Departamentos",
       title: "La señal que esperabas...",
     },
@@ -109,15 +115,9 @@ export const Proyectos = () => {
     },
     {
       href: "https://logistica-theta.vercel.app/",
-      img: "/assets/camion2.jpg",
+      img: "/assets/camion.avif",
       alt: "Logística",
       title: "A tiempo, como nadie más...",
-    },
-    {
-      href: "https://moodify-tau.vercel.app/",
-      img: "/assets/moodify.png",
-      alt: "Moodify",
-      title: "Canciones para vos...",
     },
   ];
 
