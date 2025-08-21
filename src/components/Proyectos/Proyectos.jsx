@@ -146,6 +146,30 @@ export const Proyectos = () => {
       >
         {loading ? skeletons : content}
       </s.Container>
+      <s.Header>Plantillas web</s.Header>
+      <s.Container
+        style={{
+          opacity: loading ? 0.5 : showContent ? 1 : 0,
+          transition: "opacity 0.6s ease",
+          width: "350px",
+          justifySelf: "center",
+        }}
+      >
+        <s.Card>
+          <s.ImageWrapper>
+            <a
+              href="https://plantillas-six.vercel.app/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src="public/assets/pf.webp" alt="" />
+              <s.Overlay>
+                <s.Button>Ver diseños</s.Button>
+              </s.Overlay>
+            </a>
+          </s.ImageWrapper>
+        </s.Card>
+      </s.Container>
     </s.Wrapper>
   );
 };
