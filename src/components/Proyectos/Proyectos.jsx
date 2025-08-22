@@ -162,7 +162,7 @@ export const Proyectos = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <img src="public/assets/pf.webp" alt="" />
+              <img src="/assets/pf.webp" alt="Logo" />
               <s.Overlay>
                 <s.Button>Ver diseños</s.Button>
               </s.Overlay>
