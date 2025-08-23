@@ -7,7 +7,6 @@ const skills = [
   { name: "CSS", src: "/icons/css.png" },
   { name: "JavaScript", src: "/icons/Js.png" },
   { name: "React", src: "/icons/react.png" },
-  { name: "Angular", src: "/icons/angular.png" },
   { name: "Bootstrap", src: "/icons/boostrap.png" },
   { name: "Tailwind", src: "/icons/tailwind.png" },
 ];
@@ -15,17 +14,15 @@ const skills = [
 export const Skills = () => {
   const [loading, setLoading] = useState(true);
 
-  // Simula una carga de contenido
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 1500); // Ajusta el tiempo según tus necesidades
+    }, 1500);
   }, []);
 
   const skeletons = skills.map((_, index) => (
     <s.SkillItem key={index}>
       <Skeleton variant="circular" width={60} height={60} />{" "}
-      {/* Asegúrate de que el tamaño sea el mismo que el de tus iconos */}
     </s.SkillItem>
   ));
 
@@ -42,11 +39,7 @@ export const Skills = () => {
   return (
     <s.Container>
       <s.Title>Habilidades</s.Title>
-      {loading ? (
-        <s.SkillsGrid>{skeletons}</s.SkillsGrid> // Usa el mismo contenedor para los Skeletons
-      ) : (
-        content
-      )}
+      {loading ? <s.SkillsGrid>{skeletons}</s.SkillsGrid> : content}
     </s.Container>
   );
 };
