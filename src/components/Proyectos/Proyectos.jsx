@@ -1,7 +1,11 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import * as s from "./ProyectoStyled";
 import { Skeleton } from "@mui/material";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const LazyImage = ({ src, alt }) => {
   const [loaded, setLoaded] = useState(false);
@@ -44,15 +48,50 @@ const LazyImage = ({ src, alt }) => {
 
 export const Proyectos = () => {
   const [loading, setLoading] = useState(true);
-  const [showContent, setShowContent] = useState(false);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-      setTimeout(() => setShowContent(true), 100);
     }, 1500);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (!loading) {
+      gsap.fromTo(
+        sectionRef.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+          },
+        }
+      );
+
+      gsap.from(
+        gsap.utils.toArray(
+          sectionRef.current.querySelectorAll(".project-card")
+        ),
+        {
+          opacity: 0,
+          y: 50,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+          },
+        }
+      );
+    }
+  }, [loading]);
 
   const skeletons = Array(6)
     .fill(null)
@@ -109,7 +148,7 @@ export const Proyectos = () => {
     },
     {
       href: "https://nucbaharley.vercel.app/index.html",
-      img: "/assets/Harley.jpg",
+      img: "/assets/Harley.webp",
       alt: "Harley",
       title: "No es solo una moto...",
     },
@@ -122,7 +161,7 @@ export const Proyectos = () => {
   ];
 
   const content = projects.map(({ href, img, alt, title }, index) => (
-    <s.Card key={index}>
+    <s.Card key={index} className="project-card">
       <s.ImageWrapper>
         <a href={href} target="_blank" rel="noreferrer">
           <LazyImage src={img} alt={alt} />
@@ -136,26 +175,19 @@ export const Proyectos = () => {
   ));
 
   return (
-    <s.Wrapper id="Proyectos">
+    <s.Wrapper id="Proyectos" ref={sectionRef}>
       <s.Header>Mis Proyectos</s.Header>
+      <s.Container>{loading ? skeletons : content}</s.Container>
+      <s.Header style={{ marginTop: "100px", marginBottom: "20px" }}>
+        Plantillas web
+      </s.Header>
       <s.Container
         style={{
-          opacity: loading ? 0.5 : showContent ? 1 : 0,
-          transition: "opacity 0.6s ease",
-        }}
-      >
-        {loading ? skeletons : content}
-      </s.Container>
-      <s.Header>Plantillas web</s.Header>
-      <s.Container
-        style={{
-          opacity: loading ? 0.5 : showContent ? 1 : 0,
-          transition: "opacity 0.6s ease",
           width: "350px",
           justifySelf: "center",
         }}
       >
-        <s.Card>
+        <s.Card className="project-card">
           <s.ImageWrapper>
             <a
               href="https://plantillas-six.vercel.app/"

@@ -9,25 +9,19 @@ const contactLinks = [
     alt: "Gmail",
   },
   {
-    href: "https://api.whatsapp.com/send?phone=5493543300701&text=Hola%21%20Hola%20Joel,%20me%20comunico%20para",
-    src: "/redes/whatsapp.png",
-    alt: "WhatsApp",
-  },
-  {
-    href: "https://www.instagram.com/joel_elias.19/",
-    src: "/redes/instagram.png",
-    alt: "Instagram",
+    href: "https://www.linkedin.com/in/brian-elias-perfil/",
+    src: "/icons/linkedin.png",
+    alt: "LinkedIn",
   },
 ];
 
 export const Contact = () => {
   const [loading, setLoading] = useState(true);
 
-  // Simula una carga de contenido
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 1500); // Ajusta el tiempo según tus necesidades
+    }, 1500);
   }, []);
 
   const skeletons = contactLinks.map((link) => (

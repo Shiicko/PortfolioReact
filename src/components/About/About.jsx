@@ -1,16 +1,38 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import * as s from "./AboutStyled";
 import { Skeleton } from "@mui/material";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const About = () => {
   const [loading, setLoading] = useState(true);
+  const sectionRef = useRef(null);
+  const contentRef = useRef(null);
 
-  // Simula una carga de contenido
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setLoading(false);
-    }, 1500); // Ajusta el tiempo según tus necesidades
+    }, 1500);
+    return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (!loading) {
+      gsap.from(contentRef.current.children, {
+        opacity: 0,
+        y: 50,
+        duration: 1.2,
+        stagger: 0.3,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        },
+      });
+    }
+  }, [loading]);
 
   const skeletonContent = (
     <>
@@ -52,8 +74,8 @@ export const About = () => {
   );
 
   return (
-    <s.container id="About">
-      {loading ? skeletonContent : realContent}
+    <s.container id="About" ref={sectionRef}>
+      <div ref={contentRef}>{loading ? skeletonContent : realContent}</div>
     </s.container>
   );
 };
