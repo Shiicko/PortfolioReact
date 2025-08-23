@@ -68,13 +68,6 @@ export const Hero = () => {
                 limpio y funcional.
               </s.Description>
               <s.ButtonsRow>
-                <s.Button
-                  href="https://www.linkedin.com/in/brian-elias-perfil/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  LinkedIn
-                </s.Button>
                 <s.Button href="/Curriculum.pdf" download>
                   Descargar CV
                 </s.Button>
