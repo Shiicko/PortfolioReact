@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import * as s from "./HeroStyled";
 import { Skeleton } from "@mui/material";
-import gsap from "gsap"; // Asegúrate de tener gsap instalado
+import gsap from "gsap";
 
 export const Hero = () => {
   const [loading, setLoading] = useState(true);
@@ -16,12 +16,11 @@ export const Hero = () => {
 
   useEffect(() => {
     if (!loading) {
-      // Animación de GSAP después de que el contenido se carga
       gsap.from(contentRef.current.children, {
         opacity: 0,
         y: 50,
         duration: 0.8,
-        stagger: 0.2, // Anima cada elemento con un pequeño retraso
+        stagger: 0.2,
         ease: "power2.out",
       });
     }
