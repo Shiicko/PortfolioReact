@@ -10,6 +10,9 @@ const GlobalStyles = createGlobalStyle`
     font-family: "Poppins", sans-serif;
     font-weight: 700;
   }
+  html{
+    scroll-behavior: smooth;
+  }
 `;
 
 export default GlobalStyles;
